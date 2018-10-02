@@ -44,40 +44,25 @@ class Bottleneck(nn.Module):
         return out
 
 
-def resnext50(pretrained=False, **kwargs):
-    """Constructs a ResNeXt-50 model.
-
-    Args:
-        pretrained (bool): If True, returns a model pre-trained on ImageNet
-    """
+def resnext50(pretrained_weights=None, **kwargs):
     model = ResNet(Bottleneck, [3, 4, 6, 3], **kwargs)
-    if pretrained:
-        # model.load_state_dict(model_zoo.load_url(model_urls['resnet50']))
+    if pretrained_weights is not None:
+        model.load_state_dict(pretrained_weights)
         pass
     return model
 
 
-def resnext101(pretrained=False, **kwargs):
-    """Constructs a ResNeXt-101 model.
-
-    Args:
-        pretrained (bool): If True, returns a model pre-trained on ImageNet
-    """
+def resnext101(pretrained_weights=None, **kwargs):
     model = ResNet(Bottleneck, [3, 4, 23, 3], **kwargs)
-    if pretrained:
-        # model.load_state_dict(model_zoo.load_url(model_urls['resnet101']))
+    if pretrained_weights is not None:
+        model.load_state_dict(pretrained_weights)
         pass
     return model
 
 
-def resnext152(pretrained=False, **kwargs):
-    """Constructs a ResNeXt-152 model.
-
-    Args:
-        pretrained (bool): If True, returns a model pre-trained on ImageNet
-    """
+def resnext152(pretrained_weights=None, **kwargs):
     model = ResNet(Bottleneck, [3, 8, 36, 3], **kwargs)
-    if pretrained:
-        # model.load_state_dict(model_zoo.load_url(model_urls['resnet152']))
+    if pretrained_weights is not None:
+        model.load_state_dict(pretrained_weights)
         pass
     return model

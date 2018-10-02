@@ -41,3 +41,6 @@ class Trainer:
             outputs = self.model.forward(inputs)
             loss += criterion(outputs, labels).item()
         return loss
+
+    def save_weights(self, filename):
+        torch.save(self.model.state_dict(), filename)
